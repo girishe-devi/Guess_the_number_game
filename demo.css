@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+NZ+Basic:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    /* font family */
+    --font-a:"Rodoto";
+    --font-b:"Bebas Neue";
+    --font-c:"Playwrite Österreich";
+    --font-d:"Playwrite New Zealand Basic";
+    /* colours */
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* navbar */
+.nav{
+    span{
+        color: #f7923a;
+    }
+    div{
+        position: fixed;
+    }
+}

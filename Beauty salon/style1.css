@@ -1,0 +1,109 @@
+.header{
+    background-image: url("IMG_20260304_174458.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+body{
+    
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+nav{
+    display: flex;
+    h1{
+        color: aliceblue;
+        padding-left: 100px;
+        margin-top: 5px;
+        
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+    }
+}
+.menus{
+    padding-left: 400px;   /*gap between icon and menu div*/
+    margin-top: 20px;
+    padding-right: 20px;
+    a{
+        color: aliceblue;
+        text-decoration: none;
+        padding-left: 20px;   /*gap between menus */
+    }
+}
+.reserve{
+    height: 40px;
+    background: transparent;
+    border-color: white;
+    border-radius: 15px 0px;
+    padding: 5px 20px;
+    box-shadow: none;
+    color: aliceblue;
+    margin-top: 10px;
+}
+.main{
+    color: aliceblue;
+    margin-left: 80px;
+    margin-top: 150px;
+    h1{
+        font-size: 60px;
+        margin-bottom: 20px;
+        font-weight: lighter;
+    }
+    h6{
+        margin-bottom: -30px;
+        font-weight: lighter;
+        font-size: small;
+    }
+    button{
+        border-radius: 15px 0px;
+        background-color: orangered;
+        color: aliceblue;
+        border-color: orangered;
+        padding: 5px 20px;
+    }
+}
+.middle-part{
+    margin-left: 20px;
+}
+.mid{                  /*proud and honoured*/
+    background-color: green;
+    height: 40px;
+    color: aliceblue;
+    margin-top: -50px;
+    margin-left: 600px;
+    position: absolute;
+    padding: 5px 20px;
+    font-weight:bold ;
+    font-size: xx-small;
+}
+.mid-one{
+    display: flex;
+}
+.mid-one-a{
+    display: flex;
+    margin-left: 60px;
+    .a-icon{
+        margin-top: 40px;
+        margin-right: 10px;
+        color: orangered;
+    }
+    .a-cont{
+        h1{
+            font-weight: lighter;
+            font-size: 30px;
+            margin-bottom: -10px;
+        }
+        p{
+            font-size: 10px;
+        }
+    }
+}

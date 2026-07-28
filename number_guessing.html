@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Welcome to Number Guessing Game!</h1>
+
+    <button onclick="guessComp()">Start</button>
+
+    <p class="text"></p>
+
+    <label for="guess">Guess:</label>
+    <input type="text" class="guess" placeholder="1 to 100">
+
+    <button onclick="checkNum()">Check</button>
+
+    <div class="guesstab">
+        <p>Guess 1: 23</p>
+        <p>Status: Answer Found</p>
+    </div>
+
+    <script>
+
+        const text=document.querySelector('.text');
+        const guess=document.querySelector('.guess');
+        const guesstab=document.querySelector('.guesstab');
+        let game_count;            
+        let G_count;
+        let randnum;
+        let score={};
+        console.log(score);
+
+        function guessComp(){
+            randnum = Math.floor(Math.random()*(100-1))+1;
+            console.log(randnum);
+            game_count++;
+            G_count=0;
+            text.textContent='Guess a number between 1 to 100';
+            if(score===undefined){
+                score.games=0;
+                score.accuracy=0;
+            }
+            console.log(score);
+        }
+
+        function checkNum(){
+            let num=Number(guess.value);
+            G_count++;
+            let status;
+            if(num > randnum){
+                text.textContent='Number is Lower';
+                status='Lower';
+                
+            }
+            else if(num < randnum){
+                text.randnum='Number is Higher';
+                status='Higher';
+                
+            }
+            else if(num === randnum){
+                text.textContent=`Your guess is correct. The number is ${randnum}`;
+                status='Answer Found';
+                totalScore(G_count,game_count);
+                
+            }
+            else if(num < 0 || num > 100){
+                text.textContent='Guess a number only between 1 to 100';
+                status='Invalid Answer';
+                
+            }
+            console.log(num,status)
+            guess_tab(G_count,num,status);
+            
+        }
+
+        let guesses='';
+        function guess_tab(count,num,status){
+            guesses+=`<p>Guess ${count}: ${num}</p><p>Status: ${status}`;
+            guesstab.innerHTML=guesses;
+            
+        }
+
+        function totalScore(count,gamecount){
+            
+            if(score!==undefined){
+                score.games=gamecount;
+                score.accuracy=(count/15)*100;
+            }
+            console.log(`Accuracy:${score.accuracy}`);
+        }
+
+    </script>
+
+    <style>
+
+        .guesstab{
+            display: grid;
+            width: 190px;
+            grid-template-columns:100px 180px ;
+        }
+
+    </style>
+
+</body>
+</html>

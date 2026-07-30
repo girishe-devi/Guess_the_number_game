@@ -1,0 +1,124 @@
+.sidebar{
+    position:fixed;
+    background-color: red;
+    color:white;
+    left: 0;
+    top: 2px;
+    width: 150px;
+    height: 100%;
+    z-index: 5;
+    h1{
+        padding-left:10px
+    }
+}
+   
+.side{
+    background-color: gray;
+    height: 130px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;     /*vertical center*/
+    align-items: center;         /*horizontal center*/
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+    background-color: pink;
+    z-index: 10;
+    margin-left: 160px;
+    height: 60px;
+    align-items: center;
+    vertical-align: top;
+
+    input{
+        border: none;
+        outline: none;
+    }
+    
+}
+
+.search-bar{
+    flex:1 ;
+    height: 30px; 
+    margin-right: 10px; 
+}
+.search{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color:white;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 20px;
+}
+
+.mycart{
+    background-color: blue;
+    position: fixed;
+    right: 0;
+    height: 60px;
+    width: 200px;
+    h3{
+        margin-left: 10px;
+    }
+    .close{
+        right: 0;
+        top: 4px;
+        position: absolute;
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.product{
+    width: 300px;
+    height: 80px;
+    background-color: brown;
+    display: grid;
+    grid-template-columns:40px 1fr ;
+}
+
+.cart-item{
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    img{
+        width: 70px;
+        height: 100px;
+        margin: 10px;
+    }
+}
+
+.item-details{
+    display: grid;
+    grid-template-rows:40px 1fr 25px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    button{
+        margin-top: -10px;
+        width: 40px;
+        border-radius: 20px;
+        border: none;
+    }
+    
+}
+.mycart-1{
+    height: 0;
+    width: 0;
+}
+
+.sales-offer{
+    background-color: blue;
+    width: 190vh;
+    height: 70vh;
+    margin-left: 20vh;
+    margin-top: 5px;
+}
+

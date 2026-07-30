@@ -1,0 +1,14 @@
+.move{
+    height:50px;
+    width:50px;
+    border: none;
+    border-radius: 50px;
+}
+body{
+    background-color: black;
+    color: white;
+}
+.choice{
+    border-radius: 50px;
+    background-color: transparent;
+}

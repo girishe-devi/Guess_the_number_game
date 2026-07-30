@@ -6,6 +6,8 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+    z-index: 5;
+    position: relative;
 }
 body{
     
@@ -87,6 +89,9 @@ nav{
 }
 .mid-one{
     display: flex;
+    background-color: red;
+    margin-top: -60px;
+    z-index: 1;
 }
 .mid-one-a{
     display: flex;

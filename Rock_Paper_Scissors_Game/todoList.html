@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>ToDo List!</h1>
+
+    <input type="text" placeholder="Type the list" class="input">
+
+    <input type="date" class="date_input">
+
+    <button class="add-button" onclick="
+
+        addList();
+    
+    ">Add</button>
+    <button class="del-button" onclick="
+    
+        delList();
+    
+    ">Delete</button>
+    <div class="division">
+
+    </div>
+
+    <script>
+
+        let name_list=[];
+        let date_list=[];
+        
+        const divide=document.querySelector('.division');
+
+        function addList(){
+            
+            const inp=document.querySelector('.input');
+            const dat=document.querySelector('.date_input');
+            let name=inp.value;
+            let date=dat.value;
+            name_list.push(name);
+            date_list.push(date);
+            console.log(name_list);
+            console.log(date_list);
+            inp.value='';
+            dat.value='';
+            console.log(name_list,date_list);
+
+            renderList();
+        }
+
+        function renderList(){
+
+            let innertext='';
+            let datetext='';
+            let todo='';
+            if (name_list.length===date_list.length){
+                for(let i=0;i<=name_list.length-1;i++){
+                    innertext=name_list[i];
+                    datetext=date_list[i];
+                    todo+=`<div>${innertext}</div>
+                    <div>${datetext}</div>
+                    <button onclick="
+                        delList(${i});
+                    ">Delete</button>`;
+                }
+            }
+            divide.innerHTML=todo;
+            console.log(todo);
+
+        }
+
+        function delList(index){
+
+            let text=name_list.splice(index,1);
+            let date=date_list.splice(index,1);
+            console.log(text,date);
+            divide.innerHTML='';
+            renderList();
+
+        }
+
+    </script>
+
+    <style>
+
+        .division{
+            display: grid;
+            grid-template-columns: 200px 100px 70px;
+            row-gap: 20px;
+        }
+
+    </style>
+
+</body>
+</html>

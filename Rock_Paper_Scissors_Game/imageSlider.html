@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="password" class="pwd" onkeydown="
+           if(event.key==='Enter'){
+                countChar();
+           }
+    ">
+
+    <button class="button" onclick="
+        countChar();    
+    ">Count</button>
+
+    <button onclick="
+        changeType();
+    ">Change the type </button>
+
+    <p class="char"></p>
+
+    <div class="division">
+     <img src="Images/Rock.png" alt="" class="image">
+    </div>
+    
+    <button class="autoPlay" onclick="
+        interval();
+    ">Auto Play</button>
+
+    <a href="https://www.youtube.com"  target='_blank'>click here for youtube</a>
+
+    <p>hi &check; hi</p>
+
+
+    <script>
+
+        const check = document.querySelector('.pwd');
+        const char=document.querySelector('.char');
+
+        function changeType(){
+            if(check.type === 'password'){
+                check.type='text';
+            } 
+            else if(check.type==='text')
+            {
+                check.type='password';
+            }
+        }
+
+        function countChar(){
+            let text=check.value;
+            let num=0;
+            if(text!==null){
+                for(let i=0;i<text.length;i++){
+                    num++;
+                }
+                char.innerHTML=num;
+                check.value='';
+            }
+            else{
+                char.innerHTML='';
+            }
+        }
+
+        let imagearr=['Images/paper.png','Images/Rock.png','Images/Scissors.png'];
+
+        let imag=document.querySelector('.image');
+
+        let i=0;
+        function imageSlider(){
+            imag.src=imagearr[i];
+            i++;
+            if(i===imagearr.length){
+                i=0;
+            }
+        }
+
+        let index=0;
+        let image;
+        function interval(){
+            if(!index){
+                image=setInterval(imageSlider,1500);
+                index=1;
+            }
+            else{
+                clearInterval(image);
+                index=0;
+            }
+        }
+
+        
+        
+    </script>
+
+    <style>
+
+        .image{
+            height: 300px;
+            width: 300px;
+        }
+        .autoPlay{
+            padding:5px 10px;
+            border-style: solid;
+            background-color: rgb(14, 135, 240);
+            border-color: rgb(134, 241, 241);
+            color: rgb(134, 241, 241);
+            transition: background-color 1s;
+
+        }
+        .autoPlay:hover{
+            opacity:0.9;
+            font-style: italic;
+            font-weight: bolder;
+            background-color:aqua ;
+        }
+        .autoPlay:active{
+            background-color: black;
+        }
+        p{
+            text-align: center;
+        }
+
+    </style>
+
+</body>
+</html>

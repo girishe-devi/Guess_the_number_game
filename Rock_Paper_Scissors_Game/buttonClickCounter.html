@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button class="add1" onclick="
+        addElement(1);
+    ">Add (1)</button>
+
+    <button class="add2" onclick="
+        addElement(2);
+    ">Add (2)</button>
+
+    <P class="result"></P>
+
+    <button class="change_color" onclick="
+        changeColor();
+    ">Change Color</button>
+
+    <script>
+
+        let number=0;
+
+        function addElement(num){
+            number+=num;
+            const score=document.querySelector('.result');
+            score.innerHTML=number;
+        }
+
+        let paint='';
+        const color=document.querySelector('body');
+        let count=0;
+
+        function changeColor(){
+            let random=Math.random();
+            console.log(random);
+            if(count===0){
+                count=count+1;
+                paint=assignColor(random);
+                console.log(paint);
+            }
+            else if(count > 0){
+                console.log(`${paint}2`)
+                color.classList.remove(`${paint}`);
+                assignColor(random);
+            }
+        }
+
+        function assignColor(random){
+            if(random > 0 && random < (1/4)){
+                paint='orange';
+                color.classList.add('orange');
+            }
+            else if(random >= (1/4) && random < (2/4))
+            {
+                paint='blue';
+                color.classList.add('blue');
+            }
+            else if(random >= 2/4 && random < 3/4){
+                paint='yellow';
+                color.classList.add('yellow');
+            }
+            else if(random >= 3/4 && random <= 1){
+                paint='green';
+                color.classList.add('green');
+            }
+            return paint;
+        }
+
+    </script>
+
+    <style>
+        .orange{
+            background-color: rgb(244, 116, 69);
+        }
+        .blue{
+            background-color: rgb(78, 78, 234);
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: rgb(66, 239, 66);
+        }
+    </style>
+    
+</body>
+</html>

@@ -44,6 +44,7 @@
             G_count=0;
             text.textContent='Guess a number between 1 to 100';
             guesstab.innerHTML='';
+            guesstab.classList.remove('add');
             if(score===undefined){
                 score.games=0;
                 score.accuracy=0;
@@ -101,7 +102,6 @@
                 score.accuracy=(count/15)*100;
             }
             G_count=0;
-            
             console.log(`Accuracy:${score.accuracy}`);
         }
 

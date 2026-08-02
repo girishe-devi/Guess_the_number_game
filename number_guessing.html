@@ -7,20 +7,23 @@
 </head>
 <body>
     
-    <h1>Welcome to Number Guessing Game!</h1>
+    <h1 class="head">Welcome to Number Guessing Game!</h1>
 
-    <button onclick="guessComp()">Start</button>
+    <button onclick="guessComp()" class="start-button">Start</button>
 
     <p class="text"></p>
 
-    <label for="guess">Guess:</label>
-    <input type="text" class="guess" placeholder="1 to 100">
+    <label for="guess" class="label">Guess:</label>
+    <input type="text" class="guess" placeholder="1 to 100" onkeydown="
+        if(event.key==='Enter'){
+            checkNum();
+        }"
+    > 
 
-    <button onclick="checkNum()">Check</button>
+    <button onclick="checkNum()" class="check">Check</button>
 
     <div class="guesstab">
-        <p>Guess 1: 23</p>
-        <p>Status: Answer Found</p>
+        
     </div>
 
     <script>
@@ -33,24 +36,27 @@
         let randnum;
         let score={};
         console.log(score);
-
+        
         function guessComp(){
             randnum = Math.floor(Math.random()*(100-1))+1;
             console.log(randnum);
             game_count++;
             G_count=0;
             text.textContent='Guess a number between 1 to 100';
+            guesstab.innerHTML='';
+            guesstab.classList.remove('add');
             if(score===undefined){
                 score.games=0;
                 score.accuracy=0;
             }
             console.log(score);
+            console.log(G_count);
         }
 
         function checkNum(){
             let num=Number(guess.value);
             G_count++;
-            let status;
+            let status='';
             if(num > randnum){
                 text.textContent='Number is Lower';
                 status='Lower';
@@ -72,13 +78,18 @@
                 status='Invalid Answer';
                 
             }
-            console.log(num,status)
+            guess.value='';
+            console.log(num,status);
+            console.log(G_count);
             guess_tab(G_count,num,status);
             
         }
 
         let guesses='';
         function guess_tab(count,num,status){
+            if(count===1){
+                guesstab.classList.add('add');
+            }
             guesses+=`<p>Guess ${count}: ${num}</p><p>Status: ${status}`;
             guesstab.innerHTML=guesses;
             
@@ -90,6 +101,7 @@
                 score.games=gamecount;
                 score.accuracy=(count/15)*100;
             }
+            G_count=0;
             console.log(`Accuracy:${score.accuracy}`);
         }
 
@@ -99,8 +111,51 @@
 
         .guesstab{
             display: grid;
-            width: 190px;
+            width: 280px;
             grid-template-columns:100px 180px ;
+            background-color: rgb(202, 167, 235);
+        }
+        .start-button,.check{
+            background-color: blueviolet;
+            color: white;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 3px 3px rgb(79, 21, 78);
+        }
+        .start-button :active{
+            background-color: rgb(18, 9, 27);
+        }
+        .label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: larger;
+        }
+        .guess{
+            padding: 5px;
+            border: rgb(149, 31, 196);
+            box-shadow: 4px 4px rgb(236, 226, 226);
+        }
+        .check{
+            margin-left: 20px;
+            background-color: rgb(177, 32, 146);
+        }
+        .text,.guesstab{
+            color: rgb(27, 18, 36);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 300;
+        }
+        .head{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .add{
+            padding: 20px;
+            margin: 10px;
+            margin-top: 40px;
+            color: black;
         }
 
     </style>
